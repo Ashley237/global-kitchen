@@ -7,9 +7,11 @@ const {
   createRecipe,
   updateRecipe,
   deleteRecipe,
+  getRecipeById,
 } = require("../controllers/recipeController");
 
 router.get("/recipes", getRecipes);
+router.get("/recipes/:id", getRecipeById);
 
 router.post("/recipes", createRecipe);
 
