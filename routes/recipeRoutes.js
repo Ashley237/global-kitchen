@@ -10,13 +10,11 @@ const {
   getRecipeById,
 } = require("../controllers/recipeController");
 
-router.get("/recipes", getRecipes);
-router.get("/recipes/:id", getRecipeById);
-
-router.post("/recipes", createRecipe);
-
-router.patch("/recipes/:id", updateRecipe);
-
-router.delete("/recipes/:id", deleteRecipe);
+router.route("/recipes").get(getRecipes).post(createRecipe);
+router
+  .route("/recipes/:id")
+  .get(getRecipeById)
+  .patch(updateRecipe)
+  .delete(deleteRecipe);
 
 module.exports = router;
